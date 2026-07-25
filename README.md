@@ -1,28 +1,68 @@
 # 🐢 Excel To JSON Converter
 
-Herramienta portable para convertir catálogos de productos en formato Excel (`.xlsx`) a archivos JSON listos para consumir en aplicaciones web como Angular.
+A simple desktop utility to convert Excel files into JSON format.
 
-Ideal para catálogos, inventarios, listas de precios y sistemas que necesitan transformar información administrada desde Excel a un formato ligero y compatible.
+Designed to transform structured data from spreadsheets into a lightweight format suitable for applications, APIs and data processing workflows.
 
----
+## Features
 
-## ✨ Características
+- Convert `.xlsx` files to `.json`
+- Simple graphical interface
+- Portable executable
+- UTF-8 support
+- No external services required
 
-- 📊 Conversión de Excel (`.xlsx`) a JSON.
-- 🖥️ Interfaz gráfica sencilla.
-- 🚀 Aplicación portable.
-- 🐍 Desarrollada en Python.
-- 🔤 Soporte para caracteres especiales (UTF-8).
-- ⚡ No requiere conocimientos técnicos.
-- 🌎 Compatible con flujos de trabajo frontend como Angular.
+## Usage
 
----
+1. Open the application.
+2. Select an Excel file.
+3. Generate the JSON output.
 
-# 🚀 Pasos de uso
+Workflow:
 
-## 1. Abrir la aplicación
+```
+Excel file
+    ↓
+Excel To JSON Converter 🐢
+    ↓
+JSON file
+```
 
-Ejecuta:
+## Built With
 
-```text
-ExcelToJSON.exe
+- Python
+- Tkinter
+- Pandas
+- OpenPyXL
+- PyInstaller
+
+## Development
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run:
+
+```bash
+python app.py
+```
+
+Build executable:
+
+```bash
+pyinstaller --onefile --windowed app.py
+```
+
+## Author
+
+🐢 Fernando Prestier
+
+GitHub:
+https://github.com/FernandoPrestier
+
+## License
+
+MIT
