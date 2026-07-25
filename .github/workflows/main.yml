@@ -1,0 +1,86 @@
+name: Build Desktop App
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build
+        run: |
+          pyinstaller --onefile --windowed --name ExcelToJSON app.py
+
+      - name: Upload Windows
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExcelToJSON-Windows
+          path: dist/ExcelToJSON.exe
+
+
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build
+        run: |
+          pyinstaller --onefile --windowed --name ExcelToJSON app.py
+
+      - name: Upload Linux
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExcelToJSON-Linux
+          path: dist/ExcelToJSON
+
+
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build
+        run: |
+          pyinstaller --windowed --name ExcelToJSON app.py
+
+      - name: Upload macOS
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExcelToJSON-macOS
+          path: dist/ExcelToJSON.app
